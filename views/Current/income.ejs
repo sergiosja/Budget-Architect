@@ -7,6 +7,16 @@
 <body>
     <h1> Add income </h1>
 
+    <div>
+        <ul>
+            <% if (typeof errors != 'undefined') { %>
+                <% errors.forEach (error => { %>
+                    <li> <%= error.message %> </li>
+                <% }) %>
+            <% } %>
+        </ul>
+    </div>
+
     <form id="in" action="/users/income" method="post">
         <div class="box">
             <input type="name" name="source" category ="source" placeholder="Who paid you?">

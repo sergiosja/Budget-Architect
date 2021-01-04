@@ -7,6 +7,16 @@
 <body>
     <h1> Add receipt </h1>
 
+    <div>
+        <ul>
+            <% if (typeof errors != 'undefined') { %>
+                <% errors.forEach (error => { %>
+                    <li> <%= error.message %> </li>
+                <% }) %>
+            <% } %>
+        </ul>
+    </div>
+
     <form id="out" action="/users/receipt/addfive" method="post">
         <div class="box">
             <input type="name" id="source" name="source" placeholder="Where did you shop?">

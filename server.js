@@ -506,6 +506,7 @@ app.post('/users/deletein', async (req, res) => {
 app.post('/users/alterout', async (req, res) => {
     let userid = {user: req.user.userid}.user;
     let {id, source, matter, category, price} = req.body;
+    let errors = [];
 
     pool.query(
         `UPDATE outgoing
@@ -513,10 +514,13 @@ app.post('/users/alterout', async (req, res) => {
         WHERE userid = $5 and outgoingid = $6`,
         [source, matter, category, price, userid, id],
         (err) => {
-            if (err)
-                console.log(err);
-            
-            res.redirect('/users/month');
+            if (err) {
+                errors.push({message: "Something went wrong, receipt not altered"});
+                errors.push({message: "Remember to fill in everything!"});
+                res.render('Current/alterout', {errors})
+            } else {
+                res.redirect('/users/month');
+            }
         }
     );
 });
@@ -525,6 +529,7 @@ app.post('/users/alterout', async (req, res) => {
 app.post('/users/alterin', async (req, res) => {
     let userid = {user: req.user.userid}.user;
     let {id, source, matter, category, price} = req.body;
+    let errors = [];
 
     pool.query(
         `UPDATE income
@@ -532,10 +537,13 @@ app.post('/users/alterin', async (req, res) => {
         WHERE userid = $5 and incomeid = $6`,
         [source, matter, category, price, userid, id],
         (err) => {
-            if (err)
-                console.log(err);
-            
-            res.redirect('/users/month');
+            if (err) {
+                errors.push({message: "Something went wrong, income not altered"});
+                errors.push({message: "Remember to fill in everything!"});
+                res.render('Current/alterin', {errors})
+            } else {
+                res.redirect('/users/month');
+            }
         }
     );
 });
@@ -546,16 +554,20 @@ app.post('/users/income', async (req, res) => {
     let userid = {user: req.user.userid}.user;
     let {source, matter, category, price} = req.body;
     let currmonth = new Date().getMonth();
+    let errors = [];
 
     pool.query(
         `insert into income (userid, date, month, source, matter, category, price)
         values ($1, current_date, $2, $3, $4, $5, $6)`,
         [userid, currmonth, source, matter, category, price],
         (err) => {
-            if (err)
-                console.log(err);
-
-            res.redirect('/users/month');
+            if (err) {
+                errors.push({message: "Something went wrong, income not added"});
+                errors.push({message: "Remember to fill in everything!"});
+                res.render('Current/income', {errors})
+            } else {
+                res.redirect('/users/month');
+            }
         }
     );
 });
@@ -565,16 +577,20 @@ app.post('/users/receipt', async (req, res) => {
     let userid = {user: req.user.userid}.user;
     let {source, matter, category, price} = req.body;
     let currmonth = new Date().getMonth();
+    let errors = [];
 
     pool.query(
         `insert into outgoing (userid, date, month, source, matter, category, price)
         values ($1, current_date, $2, $3, $4, $5, $6)`,
         [userid, currmonth, source, matter, category, price],
         (err) => {
-            if (err)
-                console.log(err);
-
-            res.redirect('/users/month');
+            if (err) {
+                errors.push({message: "Something went wrong, receipt not added"});
+                errors.push({message: "Remember to fill in everything!"});
+                res.render('Current/receipt', {errors})
+            } else {
+                res.redirect('/users/month');
+            }
         }
     );
 });
@@ -584,6 +600,7 @@ app.post('/users/receipt/addfive', async (req, res) => {
     let userid = {user: req.user.userid}.user;
     let {source, matter, category, price} = req.body;
     let currmonth = new Date().getMonth();
+    let errors = [];
 
     pool.query(
         `insert into outgoing (userid, date, month, source, matter, category, price)
@@ -596,10 +613,13 @@ app.post('/users/receipt/addfive', async (req, res) => {
         matter[1], category[1], price[1], matter[2], category[2], price[2],
         matter[3], category[3], price[3], matter[4], category[4], price[4]],
         (err) => {
-            if (err)
-                console.log(err);
-
-            res.redirect('/users/month');
+            if (err) {
+                errors.push({message: "Something went wrong, receipts not added"});
+                errors.push({message: "Remember to fill in everything!"});
+                res.render('Current/addfive', {errors})
+            } else {
+                res.redirect('/users/month');
+            }
         }
     );
 });
@@ -609,6 +629,7 @@ app.post('/users/receipt/addten', async (req, res) => {
     let userid = {user: req.user.userid}.user;
     let {source, matter, category, price} = req.body;
     let currmonth = new Date().getMonth();
+    let errors = [];
 
     pool.query(
         `insert into outgoing (userid, date, month, source, matter, category, price)
@@ -629,10 +650,13 @@ app.post('/users/receipt/addten', async (req, res) => {
         matter[7], category[7], price[7], matter[8], category[8], price[8],
         matter[9], category[9], price[9]],
         (err) => {
-            if (err)
-                console.log(err);
-
-            res.redirect('/users/month');
+            if (err) {
+                errors.push({message: "Something went wrong, receipts not added"});
+                errors.push({message: "Remember to fill in everything!"});
+                res.render('Current/addten', {errors})
+            } else {
+                res.redirect('/users/month');
+            }
         }
     );
 });

@@ -65,7 +65,9 @@ button{
     font-size: 25px;
 }
 
-/* Collapsibles */
+#success{
+    color: #236b27;
+}
 
 .container {
     display: block;

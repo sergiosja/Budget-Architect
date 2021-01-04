@@ -7,6 +7,16 @@
 <body>
     <h1> Alter income </h1>
 
+    <div>
+        <ul>
+            <% if (typeof errors != 'undefined') { %>
+                <% errors.forEach (error => { %>
+                    <li> <%= error.message %> </li>
+                <% }) %>
+            <% } %>
+        </ul>
+    </div>
+
     <form id="alterin" action="/users/alterin" method="post">
         <div class="box">
             <input type="text" id="id" name="id" placeholder="Enter ID">
