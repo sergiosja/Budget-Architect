@@ -454,7 +454,7 @@ app.post('/users/deleteout', async (req, res) => {
         [userid, id],
         (err) => {
             if (err)
-                throw err;
+                console.log(err);
 
             res.redirect('/users/month');
         }
@@ -472,7 +472,7 @@ app.post('/users/deletein', async (req, res) => {
         [userid, id],
         (err) => {
             if (err)
-                throw err;
+                console.log(err);
 
             res.redirect('/users/month');
         }
@@ -491,7 +491,7 @@ app.post('/users/alterout', async (req, res) => {
         [source, matter, category, price, userid, id],
         (err) => {
             if (err)
-                throw err;
+                console.log(err);
             
             res.redirect('/users/month');
         }
@@ -510,7 +510,7 @@ app.post('/users/alterin', async (req, res) => {
         [source, matter, category, price, userid, id],
         (err) => {
             if (err)
-                throw err;
+                console.log(err);
             
             res.redirect('/users/month');
         }
@@ -530,7 +530,7 @@ app.post('/users/income', async (req, res) => {
         [userid, currmonth, source, matter, category, price],
         (err) => {
             if (err)
-                throw err;
+                console.log(err);
 
             res.redirect('/users/month');
         }
@@ -549,7 +549,7 @@ app.post('/users/receipt', async (req, res) => {
         [userid, currmonth, source, matter, category, price],
         (err) => {
             if (err)
-                throw err;
+                console.log(err);
 
             res.redirect('/users/month');
         }
@@ -574,7 +574,7 @@ app.post('/users/receipt/addfive', async (req, res) => {
         matter[3], category[3], price[3], matter[4], category[4], price[4]],
         (err) => {
             if (err)
-                throw err;
+                console.log(err);
 
             res.redirect('/users/month');
         }
@@ -607,7 +607,7 @@ app.post('/users/receipt/addten', async (req, res) => {
         matter[9], category[9], price[9]],
         (err) => {
             if (err)
-                throw err;
+                console.log(err);
 
             res.redirect('/users/month');
         }
@@ -641,14 +641,10 @@ app.post('/users/signup', async (req, res) => {
     if (errors.length > 0) {
         res.render('signup', {errors});
 
-    // Form validation has passed
     } else {
-
-        // Salting and hashing password
         let salt = await bcrypt.genSalt(10)
         let encryptedPassword = await bcrypt.hash(password, salt)
 
-        // Checking if the username is taken
         pool.query(
             `select * from users
             where name = $1`,
@@ -657,13 +653,11 @@ app.post('/users/signup', async (req, res) => {
                 if (err)
                     throw err;
 
-                // If there is a user in the database with the entered username
                 if (results.rows.length > 0) {
                     errors.push({message: 'Username unavailable'});
                     res.render('signup', {errors});
                 } else {
-
-                    // As long as the username is not taken, enter user to database
+                    
                     pool.query(
                         `insert into users (name, password)
                         values($1, $2)

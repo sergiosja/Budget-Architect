@@ -11,29 +11,23 @@
     <div id="container">
         <div class="box" id="in">
             <h3> Income </h3>
-            <% if (typeof income != 'undefined') { %>
-                <% income.forEach (func => { %>
-                    <h2> <%= func.row %> </h2>
-                <% }) %>
-            <% } %>
+            <% income.forEach (func => { %>
+                <h2> <%= func.row %> </h2>
+            <% }) %>
         </div>
 
         <div class="box" id="main">
             <h3> Your current </h3>
-            <% if (typeof total != 'undefined') { %>
-                <% total.forEach (func => { %>
-                    <h2> <%= func.row %> </h2>
-                <% }) %>
-            <% } %>
+            <% total.forEach (func => { %>
+                <h2> <%= func.row %> </h2>
+            <% }) %>
         </div>
 
         <div class="box" id="out">
             <h3> Outgoing </h3>
-            <% if (typeof outgoing != 'undefined') { %>
-                <% outgoing.forEach (func => { %>
-                    <h2> <%= func.row %> </h2>
-                <% }) %>
-            <% } %>
+            <% outgoing.forEach (func => { %>
+                <h2> <%= func.row %> </h2>
+            <% }) %>
         </div>
     </div>
 
@@ -44,38 +38,32 @@
     <div id="container">
         <table>
             <tr>
-                <% if (typeof header != 'undefined') { %>
-                    <% header.forEach (func => { %>
-                        <th style="background: #000;"> <%= func.row %> </th>
-                    <% }) %>
-                <% } %>
+                <% header.forEach (func => { %>
+                    <th style="background: #000;"> <%= func.row %> </th>
+                <% }) %>
             </tr>
 
-            <% if (typeof historyIn != 'undefined') { %>
-                <% historyIn.forEach (func => { %>
-                    <tr id="in">
-                        <td> <%= func.row %> </td>
-                        <td> <%= func.tmpDate %> </td>
-                        <td> <%= func.source %> </td>
-                        <td> <%= func.matter %> </td>
-                        <td> <%= func.category %> </td>
-                        <td> <%= func.price %> </td>
-                    </tr>
-                <% }) %>
-            <% } %>
+            <% historyIn.forEach (func => { %>
+                <tr id="in">
+                    <td> <%= func.row %> </td>
+                    <td> <%= func.tmpDate %> </td>
+                    <td> <%= func.source %> </td>
+                    <td> <%= func.matter %> </td>
+                    <td> <%= func.category %> </td>
+                    <td> <%= func.price %> </td>
+                </tr>
+            <% }) %>
 
-            <% if (typeof historyOut != 'undefined') { %>
-                <% historyOut.forEach (func => { %>
-                    <tr id="out">
-                        <td> <%= func.row %> </td>
-                        <td> <%= func.tmpDate %> </td>
-                        <td> <%= func.source %> </td>
-                        <td> <%= func.matter %> </td>
-                        <td> <%= func.category %> </td>
-                        <td> <%= func.price %> </td>
-                    </tr>
-                <% }) %>
-            <% } %>
+            <% historyOut.forEach (func => { %>
+                <tr id="out">
+                    <td> <%= func.row %> </td>
+                    <td> <%= func.tmpDate %> </td>
+                    <td> <%= func.source %> </td>
+                    <td> <%= func.matter %> </td>
+                    <td> <%= func.category %> </td>
+                    <td> <%= func.price %> </td>
+                </tr>
+            <% }) %>
         </table>
     </div>
 

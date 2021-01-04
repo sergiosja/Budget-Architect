@@ -46,11 +46,13 @@ Example → Source: Coop. Matter: Bread. Category: Food. Cost: 34.25.
 ![income](/Images/income.jpg)
 ![income](/Images/receipt.jpg)
 
+Because I realise that you rarely only buy 1 item when you go shopping, I have added an "Add 5" and an "Add 10" button, so that you won't have to go back and write the source-name 10 times. I needed seperate sections to prevent faulty results being sent to the database. I guess this is the only "automated" part of the whole program.
+
 The last option is to see an overview (centre) of the current month, which is also what you will see if you click on a month from the "Months 2021"-section from the menu (though here you can select any month of the year).
 
 ### Overview
 
-The first thing you see is the amount you have earned (left), spent (right), and the difference of these (centre), all in NOK. If you scroll down, you will see a rather detailed history of the month. This is also where you will find the receipt IDs, which you use to alter and delete receipts. The date is 24 hours late, and I honestly have no idea why. My JavaScript shows me the right date when I console log it, and so does the database when I do queries directly in it.
+The first thing you see is the amount you have earned (left), spent (right), and the difference of these (centre), all in NOK. If you scroll down, you will see a rather detailed history of the month. This is also where you will find the receipt IDs, which you use to alter and delete receipts. The date is 24 hours late, and I honestly have no idea why. My JavaScript shows me the right date when I console log it, and so does the database when I do queries directly in Postgres.
 
 ![overview](/Images/overview.jpg)
 ![history](/Images/history.jpg)
@@ -63,10 +65,10 @@ Even though I have not included it in every picture, the "back" button is, of co
 
 If you select the "2021 Stats" option from the menu, you will see fifteen balls with information. These contain the Top 3 items and categories you have spent the most money on, your Top 3 income sources and categories, and finally the month, week and day in 2021 you spent the most money on.
 
+Holding your mouse over a section will force a font size increase and background change.
+
 ![stats](Images/stats1.jpg)
 ![stats](Images/stats2.jpg)
-
-Holding your mouse over a section will force a font size increase and background change.
 
 ### Flaws / Known bugs
 
