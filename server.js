@@ -411,34 +411,57 @@ function inccatstats (req, res, userid, user, items, categories, incomes) {
                 let price = results.rows[i].price;
                 incategories.push({row: category, price});
             }
-            // totalstats(req, res, userid, user, items, categories, incomes, incategories);
-            res.render('stats', {user, items, categories, incomes, incategories});
+            totalmonth(req, res, userid, user, items, categories, incomes, incategories);
         }
     );
 }
 
-function totalstats (req, res, userid, user, items, categories, incomes, inccategories) {
-    let totals = [];
+function totalmonth (req, res, userid, user, items, categories, incomes, incategories) {
+    let totalmonth = [];
 
     pool.query(
-        `select source, sum(price) as price
-        from income
+        `select month, sum(price) as price
+        from outgoing
         where userid = $1
-        group by source, price
+        group by month
         order by price desc
-        limit 3`,
+        limit 1`,
         [userid],
         (err, results) => {
             if (err)
                 throw err;
 
-            for (let i = 0; i < results.rows.length; i++) {
-                let matter = results.rows[i].matter;
-                let price = results.rows[i].price;
-                totals.push({row: matter, price});
-            }
-            inccatstats(req, res, userid, user, items, categories, incomes, inccategories, totals);
-            res.render('stats', {user, items, categories, incomes, incategories, totals});
+            let month = results.rows[0].month;
+            let price = results.rows[0].price;
+            totalmonth.push({row: month, price});
+
+            totalday(req, res, userid, user, items, categories, incomes, incategories, totalmonth);
+        }
+    )
+}
+
+function totalday (req, res, userid, user, items, categories, incomes, incategories, totalmonth) {
+    let totalday = [];
+
+    pool.query(
+        `select date, sum(price) as price
+        from outgoing
+        where userid = $1
+        group by date
+        order by price desc
+        limit 1`,
+        [userid],
+        (err, results) => {
+            if (err)
+                throw err;
+
+            let tmpM = JSON.stringify(results.rows[0].date).slice(6, 8);
+            let tmpD = JSON.stringify(results.rows[0].date).slice(9, 11);
+            let tmpDate = tmpD + ". " + tmpM;
+            let price = results.rows[0].price;
+
+            totalday.push({row: tmpDate, price});
+            res.render('stats', {user, items, categories, incomes, incategories, totalmonth, totalday});
         }
     )
 }
