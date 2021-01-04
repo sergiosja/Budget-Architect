@@ -1,0 +1,90 @@
+body {
+    background: #262b2f;
+}
+
+h1{
+    text-align: center;
+    font-style: italic;
+    font-family: Book Antiqua;
+    font-weight: bold;
+    font-size: 70px;
+    margin-bottom: 20px;
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+h4{
+    text-align: center;
+    font-style: italic;
+    font-family: Book Antiqua;
+    font-size: 40px;
+    margin-top: 0px;
+    margin-bottom: 100px;
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+a{
+    text-decoration: none;
+    color: #f0e68c;
+}
+
+input{
+    background: #262b2f;
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 2px solid #f0e68c;
+    margin: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
+button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background: #21282b;
+    color: #f0e68c;
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+/* Collapsibles */
+
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: Book Antiqua;
+
+    background: #262b2f;
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    cursor: pointer;
+    width: 20%;
+    outline: none;
+
+    margin-top: 30px;
+    font-size: 30px;
+    padding: 20px;
+    border: none;
+}
+
+.box {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    padding: 0 18px;
+    background: #262b2f;
+}

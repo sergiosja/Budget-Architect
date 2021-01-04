@@ -1,0 +1,90 @@
+body {
+    background: #262b2f;
+}
+
+h1 {
+    text-align: center;
+    font-style: italic;
+    font-family: Book Antiqua;
+    font-weight: bold;
+    font-size: 70px;
+    margin-bottom: 20px;
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+h4 {
+    padding-top: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #f0e68c;
+}
+
+button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background: #21282b;
+    color: #f0e68c;
+    font-size: 25px;
+}
+
+#container {
+    display: flex;
+}
+
+#in {
+    background: #236b27;
+}
+
+#main {
+    background: #676b23;
+}
+
+#out {
+    background: #6b2323;
+}
+
+.box {
+    font-family: Book Antiqua;
+    text-align: center;
+    font-size: 30px;
+
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    
+    border: 1px solid #f0e68c;
+    border-radius: 15px;
+    margin: 100px 30px;
+    
+    width: 100%;
+}
+
+#header {
+    font-family: Book Antiqua;
+    text-align: center;
+    font-size: 50px;
+
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+    margin-top: 40px;
+    margin-bottom: 0px;
+
+    width: 100%;
+}
+
+table {
+    font-family: Book Antiqua;
+    text-align: center;
+    font-size: 30px;
+
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    
+    margin-top: 30px;    
+    width: 100%;
+}

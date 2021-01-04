@@ -1,0 +1,97 @@
+body {
+    background: #262b2f;
+}
+
+h1 {
+    text-align: center;
+    font-style: italic;
+    font-family: Book Antiqua;
+    font-weight: bold;
+    font-size: 70px;
+    margin-bottom: 100px;
+
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+a {
+    text-decoration: none;
+    color: #f0e68c;
+}
+
+button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 25px;
+
+    background: #21282b;
+    color: #f0e68c;
+}
+
+#container {
+    display: flex;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+h5 {
+    margin-top: 0px;
+}
+
+.box {
+    font-family: Book Antiqua;
+    text-align: center;
+    font-size: 30px;
+
+    border: 1px solid #f0e68c;
+    border-radius: 50%;
+    margin: 100px 125px;
+    width: 100%;
+
+    padding: 5px;
+
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.centre {
+    font-family: Book Antiqua;
+    text-align: center;
+    font-size: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#winter{
+    background: #233b6b;
+}
+
+#spring{
+    background: #65236b;
+}
+
+#summer{
+    background: #236b27;
+}
+
+#fall{
+    background: #236b4e;
+}
+
+#red{
+    background: #6b2323;
+}
+
+#winter:hover, #spring:hover, #summer:hover, #fall:hover, #red:hover{
+    font-size: 35px;
+    background: #676b23;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> YBA </title>
+    <link rel="stylesheet" type="text/css" href="/CSS/month.css">
+</head>
+<body>
+    <% var list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+    <h1 id="month"> <%= list[new Date().getMonth()] + " " + new Date().getFullYear() %> </h1>
+
+    <div id="container">
+        <div class="box" id="in">
+            <h3> <a href="/users/income"> Add income </a> </h3>
+        </div>
+
+        <div class="box" id="main">
+            <h3> <a href="/users/overview"> See overview </a> </h3>
+        </div>
+
+        <div class="box" id="out">
+            <h3> <a href="/users/receipt"> Add receipt </a> </h3>
+        </div>
+    </div>
+
+    <div id="container">
+        <div class="box" id="in">
+            <h3> <a href="/users/alterin"> Alter income </a> </h3>
+        </div>
+
+        <div class="box" id="in">
+            <h3> <a href="/users/deletein"> Delete income </a> </h3>
+        </div>
+
+        <div class="box" id="out">
+            <h3> <a href="/users/alterout"> Alter receipt </a> </h3>
+        </div>
+
+        <div class="box" id="out">
+            <h3> <a href="/users/deleteout"> Delete receipt </a> </h3>
+        </div>
+    </div>
+    
+    <button type="button" style="margin-top: 100px;"> <a href="/users/menu"> Back </a> </button>
+</body>
+</html>

@@ -1,0 +1,45 @@
+body {
+    background: #262b2f;
+}
+
+h1 {
+    text-align: center;
+    font-style: italic;
+    font-family: Book Antiqua;
+    font-weight: bold;
+    font-size: 70px;
+    margin-bottom: 20px;
+    color: #f0e68c;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+a {
+    text-decoration: none;
+    color: #f0e68c;
+}
+
+#container {
+    display: flex;
+    padding: 30px;
+}
+
+.box {
+    font-family: Book Antiqua;
+    text-align: center;
+    font-size: 30px;
+
+    color: #f0e68c;
+    background: #262b2f;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    
+    border: 1px solid #f0e68c;
+    border-radius: 15px;
+    margin: 70px 50px;
+    
+    width: 100%;
+    cursor: pointer;
+}
+
+.box:hover {
+    background: #21282b;
+}

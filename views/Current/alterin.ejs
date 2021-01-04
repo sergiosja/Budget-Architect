@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> YBA </title>
+    <link rel="stylesheet" type="text/css" href="/CSS/receipt.css">
+</head>
+<body>
+    <h1> Alter income </h1>
+
+    <form id="alterin" action="/users/alterin" method="post">
+        <div class="box">
+            <input type="text" id="id" name="id" placeholder="Enter ID">
+        </div>
+
+        <div id="container">
+            <ul class="box">
+                <li>
+                    <input type="text" id="source" name="source" category ="source" placeholder="Who paid you?">
+                    <input type="text" id="matter" name="matter" placeholder="What for?">
+                    <input type="text" id="category" name="category" placeholder="What category is it?">
+                    <input type="text" id="price" name="price" placeholder="How much was it?">
+                </li>
+            </ul>
+        </div>
+
+        <button type="submit" id="alterin"> Register </button>
+    </form>
+
+    <button type="button" style="margin-top: 100px;"> <a href="/users/month"> Back </a> </button>    
+</body>
+</html>

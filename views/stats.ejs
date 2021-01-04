@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> YBA </title>
+    <link rel="stylesheet" type="text/css" href="/CSS/stats.css">
+</head>
+<body>
+    <h1> <%= user.slice(0, 1).toUpperCase() + user.slice(1) %>'s Budget Architect </h1>
+
+    <div class="centre"> Items you have spent the most money on </div>
+    <div id="container">
+        <div class="box" id="winter">
+            <h3> <%= items[0].row %> </h3>
+            <h5> <%= items[0].price %> </h5>
+        </div>
+
+        <div class="box" id="winter">
+            <h3> <%= items[1].row %> </h3>
+            <h5> <%= items[1].price %> </h5>
+        </div>
+
+        <div class="box" id="winter">
+            <h3> <%= items[2].row %> </h3>
+            <h5> <%= items[2].price %> </h5>
+        </div>
+    </div>
+
+    <div class="centre"> Categories you have spent most the money on </div>
+    <div id="container">
+        <% categories.forEach (func => { %>
+            <div class="box" id="spring">
+                <h3> <%= func.row %> </h3>
+                <h5> <%= func.price %> </h5>
+            </div>
+        <% }) %>
+    </div>
+
+    <div class="centre"> Biggest sources of income </div>
+    <div id="container">
+        <% incomes.forEach (func => { %>
+            <div class="box" id="summer">
+                <h3> <%= func.row %> </h3>
+                <h5> <%= func.price %> </h5>
+            </div>
+        <% }) %>
+    </div>
+
+    <div class="centre"> Biggest category sources of income </div>
+    <div id="container">
+        <% incategories.forEach (func => { %>
+            <div class="box" id="fall">
+                <h3> <%= func.row %> </h3>
+                <h5> <%= func.price %> </h5>
+            </div>
+        <% }) %>
+    </div>
+
+    <div class="centre"> Times you spent the most money </div>
+    <div id="container">
+        <div class="box" id="red">
+            <h3> Coming </h3>
+            <h5> soon </h5>
+        </div>
+
+        <div class="box" id="red">
+            <h3> Coming </h3>
+            <h5> soon </h5>
+        </div>
+
+        <div class="box" id="red">
+            <h3> Coming </h3>
+            <h5> soon </h5>
+        </div>
+    </div>
+
+    <button type="button" style="margin-top: 100px;"> <a href="/users/menu"> Back </a> </button>
+</body>
+</html>

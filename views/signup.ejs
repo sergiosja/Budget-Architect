@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> YBA </title>
+    <link rel="stylesheet" type="text/css" href="/CSS/index.css">
+</head>
+<body>
+    <h1 style="margin-bottom: 100px;"> Your Budget Architect </h1>
+
+     <!-- If the user fails to sign up -->
+     <div class="center" id="fail">
+        <ul>
+            <% if (typeof errors != 'undefined') { %>
+                <% errors.forEach (error => { %>
+                    <li> <%= error.message %> </li>
+                <% }) %>
+            <% } %>
+        </ul>
+    </div>
+
+    <form id="reg" action="/users/signup" method="post">
+        <div class="box">
+            <input type="text" id="username" name="username" placeholder="Username">
+            <input type="password" id="password" name="password" placeholder="Password">
+            <input type="password" id="password2" name="password2" placeholder="Confirm password">
+            <button type="submit" form="reg"> Sign up </button>
+        </div>
+    </form>
+
+    <button type="button" style="margin-top: 100px;"> <a href="/"> Back </a> </button>
+</body>
+</html>

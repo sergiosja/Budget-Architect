@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> YBA </title>
+    <link rel="stylesheet" type="text/css" href="/CSS/menu.css">
+</head>
+<body>
+    <h1> <%= user.slice(0, 1).toUpperCase() + user.slice(1) %>'s Budget Architect </h1>
+
+    <div id="container">
+        <div class="box">
+            <h3> <a href="/users/stats"> Stats <%= new Date().getFullYear() %> </a> </h3>
+        </div>
+
+        <div class="box">
+            <% var list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+            <h3> <a href="/users/month"> <%= list[new Date().getMonth()] + " " + new Date().getFullYear() %> </a> </h3>
+        </div>
+
+        <div class="box">
+            <h3> <a href="/users/months"> Months <%= new Date().getFullYear() %> </a> </h3>
+        </div>
+    </div>
+
+</body>
+</html>
