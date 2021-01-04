@@ -18,7 +18,7 @@ I'm glad you asked!
 
 ### Fundamentals
 
-The front end is written in HTML/EJS and CSS, while the backend is NodeJS with ExpressJS. You can view dependencies in the JSON file.
+The front end is written in HTML/EJS and CSS, while the backend is JavaScript with NodeJS. You can view dependencies in the JSON file.
 
 I decided to go with PostgreSQL as my database, as it is a free, easy to use and highly scalable.
 
