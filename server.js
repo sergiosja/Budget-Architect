@@ -328,11 +328,14 @@ function itemstats(req, res) {
             if (err)
                 throw err;
 
-            for (let i = 0; i < results.rows.length; i++) {
-                let matter = results.rows[i].matter;
-                let price = results.rows[i].price;
-                items.push({row: matter, price});
-            }
+            if (results.rows[0] == undefined)
+                console.log("Nothing added");
+            else
+                for (let i = 0; i < results.rows.length; i++) {
+                    let matter = results.rows[i].matter;
+                    let price = results.rows[i].price;
+                    items.push({row: matter, price});
+                }
 
             catstats(req, res, userid, user, items);
         }
@@ -354,11 +357,14 @@ function catstats(req, res, userid, user, items) {
             if (err)
                 throw err;
 
-            for (let i = 0; i < results.rows.length; i++) {
-                let category = results.rows[i].category;
-                let price = results.rows[i].price;
-                categories.push({row: category, price});
-            }
+            if (results.rows[0] == undefined)
+                console.log("Nothing added");
+            else
+                for (let i = 0; i < results.rows.length; i++) {
+                    let category = results.rows[i].category;
+                    let price = results.rows[i].price;
+                    categories.push({row: category, price});
+                }
 
             sourcestats(req, res, userid, user, items, categories);
         }
@@ -380,11 +386,14 @@ function sourcestats (req, res, userid, user, items, categories) {
             if (err)
                 throw err;
 
-            for (let i = 0; i < results.rows.length; i++) {
-                let source = results.rows[i].source;
-                let price = results.rows[i].price;
-                incomes.push({row: source, price});
-            }
+            if (results.rows[0] == undefined)
+                console.log("Nothing added");
+            else
+                for (let i = 0; i < results.rows.length; i++) {
+                    let source = results.rows[i].source;
+                    let price = results.rows[i].price;
+                    incomes.push({row: source, price});
+                }
 
             inccatstats(req, res, userid, user, items, categories, incomes);
         }
@@ -406,18 +415,22 @@ function inccatstats (req, res, userid, user, items, categories, incomes) {
             if (err)
                 throw err;
 
-            for (let i = 0; i < results.rows.length; i++) {
-                let category = results.rows[i].category;
-                let price = results.rows[i].price;
-                incategories.push({row: category, price});
-            }
+            if (results.rows[0] == undefined)
+                console.log("Nothing added");
+            else
+                for (let i = 0; i < results.rows.length; i++) {
+                    let category = results.rows[i].category;
+                    let price = results.rows[i].price;
+                    incategories.push({row: category, price});
+                }
+
             totalmonth(req, res, userid, user, items, categories, incomes, incategories);
         }
     );
 }
 
 function totalmonth (req, res, userid, user, items, categories, incomes, incategories) {
-    let totalmonth = [];
+    let totalmonthList = [];
 
     pool.query(
         `select month, sum(price) as price
@@ -431,17 +444,21 @@ function totalmonth (req, res, userid, user, items, categories, incomes, incateg
             if (err)
                 throw err;
 
-            let month = results.rows[0].month;
-            let price = results.rows[0].price;
-            totalmonth.push({row: month, price});
+            if (results.rows[0] == undefined)
+                console.log("Nothing added");
+            else {
+                let month = results.rows[0].month;
+                let price = results.rows[0].price;
+                totalmonthList.push({row: month, price});
+            }
 
-            totalday(req, res, userid, user, items, categories, incomes, incategories, totalmonth);
+            totalday(req, res, userid, user, items, categories, incomes, incategories, totalmonthList);
         }
     )
 }
 
-function totalday (req, res, userid, user, items, categories, incomes, incategories, totalmonth) {
-    let totalday = [];
+function totalday (req, res, userid, user, items, categories, incomes, incategories, totalmonthList) {
+    let totaldayList = [];
 
     pool.query(
         `select date, sum(price) as price
@@ -455,13 +472,17 @@ function totalday (req, res, userid, user, items, categories, incomes, incategor
             if (err)
                 throw err;
 
-            let tmpM = JSON.stringify(results.rows[0].date).slice(6, 8);
-            let tmpD = JSON.stringify(results.rows[0].date).slice(9, 11);
-            let tmpDate = tmpD + ". " + tmpM;
-            let price = results.rows[0].price;
+            if (results.rows[0] == undefined)
+                console.log("Nothing added");
+            else {
+                let tmpM = JSON.stringify(results.rows[0].date).slice(6, 8);
+                let tmpD = JSON.stringify(results.rows[0].date).slice(9, 11);
+                let tmpDate = tmpD + ". " + tmpM;
+                let price = results.rows[0].price;
+                totaldayList.push({row: tmpDate, price});
+            }
 
-            totalday.push({row: tmpDate, price});
-            res.render('stats', {user, items, categories, incomes, incategories, totalmonth, totalday});
+            res.render('stats', {user, items, categories, incomes, incategories, totalmonthList, totaldayList});
         }
     )
 }

@@ -9,55 +9,67 @@
 
     <div class="centre"> Items you have spent the most money on </div>
     <div id="container">
-        <% items.forEach (func => { %>
-            <div class="box" id="winter">
-                <h3> <%= func.row %> </h3>
-                <h5> <%= func.price %> </h5>
-            </div>
-        <% }) %>
+        <% if (typeof items != 'undefined') { %>
+            <% items.forEach (func => { %>
+                <div class="box" id="winter">
+                    <h3> <%= func.row %> </h3>
+                    <h5> <%= func.price %> </h5>
+                </div>
+            <% }) %>
+        <% } %>
     </div>
 
     <div class="centre"> Categories you have spent most the money on </div>
     <div id="container">
-        <% categories.forEach (func => { %>
-            <div class="box" id="spring">
-                <h3> <%= func.row %> </h3>
-                <h5> <%= func.price %> </h5>
-            </div>
-        <% }) %>
+        <% if (typeof categories != 'undefined') { %>
+            <% categories.forEach (func => { %>
+                <div class="box" id="spring">
+                    <h3> <%= func.row %> </h3>
+                    <h5> <%= func.price %> </h5>
+                </div>
+            <% }) %>
+        <% } %>
     </div>
 
     <div class="centre"> Biggest sources of income </div>
     <div id="container">
-        <% incomes.forEach (func => { %>
-            <div class="box" id="summer">
-                <h3> <%= func.row %> </h3>
-                <h5> <%= func.price %> </h5>
-            </div>
-        <% }) %>
+        <% if (typeof incomes != 'undefined') { %>
+            <% incomes.forEach (func => { %>
+                <div class="box" id="summer">
+                    <h3> <%= func.row %> </h3>
+                    <h5> <%= func.price %> </h5>
+                </div>
+            <% }) %>
+        <% } %>
     </div>
 
     <div class="centre"> Biggest category sources of income </div>
     <div id="container">
-        <% incategories.forEach (func => { %>
-            <div class="box" id="fall">
-                <h3> <%= func.row %> </h3>
-                <h5> <%= func.price %> </h5>
-            </div>
-        <% }) %>
+        <% if (typeof incategories != 'undefined') { %>
+            <% incategories.forEach (func => { %>
+                <div class="box" id="fall">
+                    <h3> <%= func.row %> </h3>
+                    <h5> <%= func.price %> </h5>
+                </div>
+            <% }) %>
+        <% } %>
     </div>
 
     <div class="centre"> Times you spent the most money </div>
     <div id="container">
         <div class="box" id="red">
-            <% var list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
-            <h3> <%= list[totalmonth[0].row] %> </h3>
-            <h5> <%= totalmonth[0].price %> </h5>
+            <% //var list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+            <% //if (typeof totalmonthList != 'undefined') { %>
+                <h3> <%//= list[totalmonth[0].row] %> </h3>
+                <h5> <%//= totalmonth[0].price %> </h5>
+            <% //} %>
         </div>
 
         <div class="box" id="red">
-            <h3> <%= totalday[0].row %> </h3>
-            <h5> <%= totalday[0].price %> </h5>
+            <% //if (typeof totaldayList != 'undefined') { %>
+                <h3> <%//= totalday[0].row %> </h3>
+                <h5> <%//= totalday[0].price %> </h5>
+            <% //} %>
         </div>
 
         <div class="box" id="red">
