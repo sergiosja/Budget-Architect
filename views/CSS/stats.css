@@ -42,6 +42,10 @@ h5 {
     margin-top: 0px;
 }
 
+h3{
+    padding-top: 30px;
+}
+
 .box {
     font-family: Book Antiqua;
     text-align: center;
@@ -49,10 +53,9 @@ h5 {
 
     border: 1px solid #f0e68c;
     border-radius: 50%;
-    margin: 100px 125px;
-    width: 100%;
-
-    padding: 5px;
+    margin: 100px;
+	height: 200px;
+    width: 200px;
 
     color: #f0e68c;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
