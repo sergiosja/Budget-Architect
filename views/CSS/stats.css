@@ -95,6 +95,5 @@ h3{
 }
 
 #winter:hover, #spring:hover, #summer:hover, #fall:hover, #red:hover{
-    font-size: 35px;
     background: #676b23;
 }
